@@ -28,11 +28,14 @@ fi
 #
 # Copy relevant files for execution
 #
-rm -rf output/sample_"$ns"_output
-mkdir -p output/sample_"$ns"_output
+
 hdir=`pwd`
 
 cp -rf $hdir/data/sample_"$ns"/input/* .
+if [ $ns -ge 3 ]
+then
+      gunzip HK_data.gz
+fi
 #
 # Now execute and store the screen output in log_file
 #
